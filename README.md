@@ -1,68 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rodney's Test App v0.9.0
+========================
 
-## Available Scripts
+[![Build Status](https://travis-ci.org/rodney-lai/test-app.svg?branch=master)](https://travis-ci.org/rodney-lai/test-app)
 
-In the project directory, you can run:
+rlai [ at ] irismedia [ dot ] com
 
-### `npm start`
+[Test App](https://app.rodneylai.com/)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[GitHub Repository](https://github.com/rodney-lai)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Server Technology
+-----------------
 
-### `npm test`
+* Web Server - [http4s](https://http4s.org/)
+* GraphQL Interpreter - [Caliban](https://github.com/ghostdogpr/caliban) [ GraphQL URL = `https://test.rodneylai.com/api/graphql` ]
+* Data Cache - [Memcached](https://memcached.org/)
+* Language - [Scala v2.13.3](https://www.scala-lang.org/)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Frontend Technology
+-------------------
 
-### `npm run build`
+* Framework - [React v16.13.1](https://reactjs.org/)
+* Design System - [MaterialUI v4.11.0](https://material-ui.com/)
+* Type Language - [Typescript v3.9.7](https://www.typescriptlang.org/)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Build, Deploy, Hosting
+----------------------
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* Build and Deploy - [DockerHub](https://hub.docker.com/)
+* Server Hosting - [Amazon Web Services (AWS)](http://aws.amazon.com/)
+* Reverse Proxy - [Nginx](https://www.nginx.com/)
+* MemCached Hosting - [RedisLabs](https://redislabs.com/)
+* Logging - [Papertrail](https://papertrailapp.com/)
+* Monitoring - [UptimeRobot](https://uptimerobot.com/)
+* SSL Certificate Authority - [LetsEncrypt](https://letsencrypt.org/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Copyright (c) 2020 Rodney S.K. Lai
 
-### `npm run eject`
+Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
