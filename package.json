@@ -45,6 +45,7 @@
     "@testing-library/react": "^11.0.4",
     "@testing-library/user-event": "^12.1.4",
     "jest-environment-jsdom-sixteen": "^1.0.3",
-    "msw": "^0.21.2"
+    "msw": "^0.21.2",
+    "ts-jest": "^26.3.0"
   }
 }
