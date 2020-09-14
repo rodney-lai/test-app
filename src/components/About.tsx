@@ -31,7 +31,7 @@ var processor = unified()
   .use(rehype2react, {createElement: React.createElement})
 
 const About = (props: {show: boolean}) => {
-  const [readmeMarkdown, setReadmeMarkdown] = useState('')
+  const [readmeMarkdown, setReadmeMarkdown] = useState('Loading...')
 
   useEffect(() => {
     fetch("https://test.rodneylai.com/api/README.md")
@@ -41,9 +41,8 @@ const About = (props: {show: boolean}) => {
 
   if (props.show) {
     return(
-      <Typography style={{padding:"15px",textAlign:"left"}}>
-        {processor.processSync(readmeMarkdown).result}
-        <Typography></Typography>
+      <Typography style={{padding:"15px",textAlign:"left"}} variant="subtitle1">
+        <>{processor.processSync(readmeMarkdown).result}</>
       </Typography>
     )
   } else {

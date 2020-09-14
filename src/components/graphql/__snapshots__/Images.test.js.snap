@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without error when show = false 1`] = `<div />`;
+
+exports[`renders without error when show = true 1`] = `
+<div>
+  <ul
+    class="MuiGridList-root makeStyles-gridList-1"
+    style="margin: -2px;"
+  >
+    <li
+      class="MuiGridListTile-root"
+      style="width: 25%; height: 254px; padding: 2px;"
+    >
+      <div
+        class="MuiGridListTile-tile"
+      >
+        <a
+          href="theLinkUrl"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img
+            alt="theTitle"
+            src="theImgUrl"
+            title="theTitle"
+          />
+        </a>
+        <div
+          class="MuiGridListTileBar-root MuiGridListTileBar-titlePositionBottom MuiGridListTileBar-rootSubtitle"
+        >
+          <div
+            class="MuiGridListTileBar-titleWrap"
+          >
+            <div
+              class="MuiGridListTileBar-title"
+            >
+              theImgTitle
+            </div>
+            <div
+              class="MuiGridListTileBar-subtitle"
+            >
+              theTitle
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;

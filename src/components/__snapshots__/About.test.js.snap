@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`about component when show = false 1`] = `<div />`;
+
+exports[`about component when show = true 1`] = `
+<div>
+  <h6
+    class="MuiTypography-root MuiTypography-subtitle1"
+    style="padding: 15px; text-align: left;"
+  >
+    <div>
+      <p>
+        This is the readme
+      </p>
+    </div>
+  </h6>
+</div>
+`;

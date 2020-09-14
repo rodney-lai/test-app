@@ -26,7 +26,7 @@ const WebCam = (props: {show: boolean}) => {
 
   useEffect(() => {
     if (props.show) {
-      fetch("https://img.rodneylai.com/webcam.json?ticks=" + (new Date()).getTime())
+      fetch("https://img.rodneylai.com/webcam.json?ticks=" + Date.now())
         .then(result => result.json())
         .then(result => setInfo(result))
     }
@@ -37,7 +37,7 @@ const WebCam = (props: {show: boolean}) => {
       <>
         <div><Typography variant="subtitle1">{info.dateCreated}</Typography></div>
         <div>
-          <img src={"https://img.rodneylai.com/webcam.jpg?ticks=" + (new Date()).getTime()} alt="webcam" title="webcam" width="95%"/>
+          <img src={"https://img.rodneylai.com/webcam.jpg?ticks=" + Date.now()} alt="webcam" title="webcam" width="95%"/>
         </div>
       </>
     )

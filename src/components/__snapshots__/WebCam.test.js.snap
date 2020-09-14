@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webcam component when show = false 1`] = `<div />`;
+
+exports[`webcam component when show = true 1`] = `
+<div>
+  <div>
+    <h6
+      class="MuiTypography-root MuiTypography-subtitle1"
+    >
+      theDateCreated
+    </h6>
+  </div>
+  <div>
+    <img
+      alt="webcam"
+      src="https://img.rodneylai.com/webcam.jpg?ticks=1599956873663"
+      title="webcam"
+      width="95%"
+    />
+  </div>
+</div>
+`;

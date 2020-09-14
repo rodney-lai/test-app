@@ -26,7 +26,7 @@ import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-import Images from './components/Images'
+import Images from './components/graphql/Images'
 import WebCam from './components/WebCam'
 import About from './components/About'
 
