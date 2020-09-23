@@ -18,10 +18,26 @@
  */
 
 import React from 'react'
-import { render, screen, waitForElementToBeRemoved } from '@testing-library/react'
+import { render, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react'
+import { MockedProvider } from '@apollo/client/testing'
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
-import About from './About'
+import About, { GET_BUILD_DATE } from './About'
+
+const mocks = [
+  {
+    request: {
+      query: GET_BUILD_DATE,
+    },
+    result: {
+      data: {
+        version: {
+          buildDate: "theAPIBuildDate"
+        },
+      },
+    },
+  },
+]
 
 const server = setupServer(
   rest.get('https://test.rodneylai.com/api/README.md', (req, res, ctx) => {
@@ -33,13 +49,24 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+jest.mock('./BuildDate', () => () => "theAppBuildDate")
+
 test('about component when show = true', async () => {
-  const { container } = render(<About show={true} />)
+  const { container } = render(
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <About show={true} />
+    </MockedProvider>
+  )
   await waitForElementToBeRemoved(() => screen.getByText(/Loading.../i))
+  await waitFor(() => screen.getByText(/API Build Date:/i))
   expect(container).toMatchSnapshot()
 })
 
 test('about component when show = false', () => {
-  const { container } = render(<About show={false} />)
+  const { container } = render(
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <About show={false} />
+    </MockedProvider>
+  )
   expect(container).toMatchSnapshot()
 })

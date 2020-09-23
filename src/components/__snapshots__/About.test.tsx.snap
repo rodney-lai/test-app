@@ -13,6 +13,16 @@ exports[`about component when show = true 1`] = `
         This is the readme
       </p>
     </div>
+    <div>
+      API Build Date: 
+      theAPIBuildDate
+      .
+    </div>
+    <div>
+      App Build Date: 
+      theAppBuildDate
+      .
+    </div>
   </h6>
 </div>
 `;

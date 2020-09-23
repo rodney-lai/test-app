@@ -19,11 +19,29 @@
 
 import * as React from 'react'
 import { useState, useEffect } from 'react'
+import { useQuery, gql } from '@apollo/client'
 import Typography from '@material-ui/core/Typography'
-import unified from 'unified'
+import BuildDate from './BuildDate'
 import markdown from 'remark-parse'
 import remark2rehype from 'remark-rehype'
 import rehype2react from 'rehype-react'
+import unified from 'unified'
+
+export const GET_BUILD_DATE = gql`
+  query {
+    version {
+      buildDate
+    }
+  }
+`
+
+interface VersionData {
+  buildDate: string
+}
+
+interface GraphQLData {
+  version: VersionData
+}
 
 var processor = unified()
   .use(markdown)
@@ -31,6 +49,7 @@ var processor = unified()
   .use(rehype2react, {createElement: React.createElement})
 
 const About = (props: {show: boolean}) => {
+  const { loading, error, data } = useQuery<GraphQLData>(GET_BUILD_DATE)
   const [readmeMarkdown, setReadmeMarkdown] = useState('Loading...')
 
   useEffect(() => {
@@ -43,6 +62,10 @@ const About = (props: {show: boolean}) => {
     return(
       <Typography style={{padding:"15px",textAlign:"left"}} variant="subtitle1">
         <>{processor.processSync(readmeMarkdown).result}</>
+        {!loading && !error && data &&
+          <div>API Build Date: {data.version.buildDate}.</div>
+        }
+        <div>App Build Date: <BuildDate />.</div>
       </Typography>
     )
   } else {
