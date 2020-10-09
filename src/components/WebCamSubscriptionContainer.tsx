@@ -18,32 +18,16 @@
  */
 
 import * as React from 'react'
-import { useState, useEffect } from 'react'
-import Typography from '@material-ui/core/Typography'
+import WebCamSubscription from './WebCamSubscription'
 
-const WebCam = (props: {show: boolean, now: number}) => {
-  const [info, setInfo] = useState({dateCreated:null})
-
-  useEffect(() => {
-    if (props.show) {
-      fetch("https://img.rodneylai.com/webcam.json?ticks=" + props.now.toString())
-        .then(result => result.json())
-        .then(result => setInfo(result))
-    }
-  }, [props.show, props.now])
-
-  if (props.show) {
+const WebCamSubscriptionContainer = (props: {show: boolean}) => {
+  if(props.show) {
     return(
-      <>
-        <div><Typography variant="subtitle1">{info.dateCreated}</Typography></div>
-        <div>
-          <img src={"https://img.rodneylai.com/webcam.jpg?ticks=" + props.now.toString()} alt="webcam" title="webcam" width="95%"/>
-        </div>
-      </>
+      <WebCamSubscription />
     )
   } else {
     return null
   }
 }
 
-export default WebCam
+export default WebCamSubscriptionContainer

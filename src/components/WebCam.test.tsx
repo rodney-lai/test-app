@@ -36,18 +36,20 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
+const now = 1599956873663
+
 test('webcam component when show = true', async () => {
   jest
     .spyOn(global.Date, 'now')
     .mockImplementation(() =>
-      new Date(1599956873663).valueOf()
+      new Date(now).valueOf()
     )
-  const { container } = render(<WebCam show={true} />)
+  const { container } = render(<WebCam show={true} now={now} />)
   await waitFor(() => screen.getByText(/theDateCreated/i))
   expect(container).toMatchSnapshot()
 })
 
 test('webcam component when show = false', () => {
-  const { container } = render(<WebCam show={false} />)
+  const { container } = render(<WebCam show={false} now={now} />)
   expect(container).toMatchSnapshot()
 })

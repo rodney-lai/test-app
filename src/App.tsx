@@ -27,7 +27,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Images from './components/graphql/Images'
-import WebCam from './components/WebCam'
+import WebCamSubscriptionContainer from './components/WebCamSubscriptionContainer'
 import About from './components/About'
 
 const useStyles = makeStyles((theme) => ({
@@ -75,9 +75,13 @@ const App = () => {
         <Grid item xs={6} style={{padding:"15px",backgroundColor:"#e6e6e6"}}>
         </Grid>
         <Grid item xs={12}>
-          <Images show={value === 0} />
-          <WebCam show={value === 1} />
-          <About show={value === 2} />
+          <React.StrictMode>
+            <Images show={value === 0} />
+          </React.StrictMode>
+          <WebCamSubscriptionContainer show={value === 1} />
+          <React.StrictMode>
+            <About show={value === 2} />
+          </React.StrictMode>
         </Grid>
         <Grid item xs={12} style={{padding:"15px"}}>
           Copyright (c) 2020 Rodney S.K. Lai

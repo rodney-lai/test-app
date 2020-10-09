@@ -3,19 +3,45 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache, split } from '@apollo/client'
+import { getMainDefinition } from '@apollo/client/utilities'
+import { WebSocketLink } from '@apollo/client/link/ws'
+
+const httpLink = new HttpLink({
+  uri: 'https://test.rodneylai.com/api/graphql'
+})
+
+const wsLink = new WebSocketLink({
+  uri: 'wss://test.rodneylai.com/ws/graphql',
+  options: {
+    lazy: true,
+    reconnect: false
+  }
+})
+
+const link = split(
+  ({ query }) => {
+    const definition = getMainDefinition(query);
+    return (
+      definition.kind === 'OperationDefinition' &&
+      definition.operation === 'subscription'
+    );
+  },
+  wsLink,
+  httpLink,
+)
+
+const cache = new InMemoryCache()
 
 const client = new ApolloClient({
-  uri: 'https://test.rodneylai.com/api/graphql',
-  cache: new InMemoryCache()
+  link,
+  cache
 })
 
 ReactDOM.render(
-  <React.StrictMode>
-    <ApolloProvider client={client}>
-      <App />
-    </ApolloProvider>
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+    <App />
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
