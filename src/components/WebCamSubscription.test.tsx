@@ -17,29 +17,31 @@
  *
  */
 
-import * as React from 'react'
-import { useSubscription, gql } from '@apollo/client'
-import WebCam from './WebCam'
+import React from 'react'
+import { render } from '@testing-library/react'
+import { MockedProvider } from '@apollo/client/testing'
+import WebCamSubscription, { WEBCAM_UPDATED_SUBSCRIPTION } from './WebCamSubscription'
 
-export const WEBCAM_UPDATED_SUBSCRIPTION = gql`
-  subscription {
-    webcamUpdated
-  }
-`
+jest.mock('./WebCam', () => () => <div>webcam</div>)
 
-interface GraphQLData {
-  webcamUpdated: string
-}
+const mocks = [
+  {
+    request: {
+      query: WEBCAM_UPDATED_SUBSCRIPTION,
+    },
+    result: {
+      data: {
+        webcamUpdated: "webCamUpdated"
+      },
+    },
+  },
+]
 
-const WebCamSubscription = () => {
-// eslint-disable-next-line
-  const { loading, error, data } = useSubscription<GraphQLData>(WEBCAM_UPDATED_SUBSCRIPTION)
-
-  return(
-    <React.StrictMode>
-      <WebCam show={true} now={Date.now()}/>
-    </React.StrictMode>
+test('renders webcam subscription', () => {
+  const { container } = render(
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <WebCamSubscription />
+    </MockedProvider>
   )
-}
-
-export default WebCamSubscription
+  expect(container).toMatchSnapshot()
+})

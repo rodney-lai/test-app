@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders webcam subscription 1`] = `
+<div>
+  <div>
+    webcam
+  </div>
+</div>
+`;

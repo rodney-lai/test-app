@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`webcam subscription container component when show = false 1`] = `<div />`;
+
+exports[`webcam subscription container component when show = true 1`] = `
+<div>
+  <div>
+    webcam subscription
+  </div>
+</div>
+`;
